@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block showcase %}
+  <style>
+    .showcase {
+      position: relative;
+      height: 100vh;
+      background: url("{% static 'images/banner-un.jpg' %}");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .showcase-text {
+      position: absolute;
+      top: 40%;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+    .showcase-text h1 {
+      font-size: 3rem;
+      padding-bottom: 20px;
+    }
+    .section {
+      width: 100%;
+      height: 400px;
+      padding: 80px 0;
+    }
+    .img-s {
+      width: 60%;
+      padding-top: 10px;
+      padding-left: 30px;
+    }
+    .section-bg-1 {
+      position: relative;
+      background: url("{% static 'images/business.jpeg' %}");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+      background-attachment: fixed;
+    }
+    .section-text {
+      color: #fff;
+    }
+  </style>
+  <div class="showcase mb-5">
+      <div class="showcase-text">
+        <h1>The Africa International Education Recruitment Conference</h1>
+        <p class="lead">Africa's leading International Education Conference</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section1">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-4 text-center">
+          <div class="card h-100">
+            <img src="https://res.cloudinary.com/hurpcuiow/image/upload/v1551091541/salesman_kt8fwt.png" alt="" class="card-img-top img-s">
+            <h6 class="text-center text-primary mt-3">Education Agents</h6>
+            <p class="px-2">in International education from the continent of Africa, Principles and Career Teachers from local and international schools, government agencies and allied business/service providers.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="card h-100">
+            <img src="https://res.cloudinary.com/hurpcuiow/image/upload/v1551092232/africa_1_vfd8hs.png" alt="" class="card-img-top img-s">
+            <div class="card-body">
+              <p>The conference is an annual event that will be hosted in various countries in Africa in each year. The 2019 edition will be held in Nairobi, Kenya.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="card h-100">
+            <img src="https://res.cloudinary.com/hurpcuiow/image/upload/v1551091474/mortarboard_uhyv6s.png" alt="" class="card-img-top img-s">
+            <div class="card-body">
+              <p>The event brings together International education providers, government and industry service providers, student recruitment agencies to build an international network, share contacts and knowledge with other professionals in the education recruitment industry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-bg-1">
+    <div class="section-text">
+      <h1 class="text-center">Our Workshops</h1>
+      <p class="text-center">All our participants will be hosted in the hotel.The workshop provides an opportunity for education providers and education recruitment agents to meet and establish partnership.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <h1 class="text-center">Partners</h1>
+      <p class="text-center px-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi impedit dolore minus a voluptate optio labore distinctio illo alias repellendus.</p>
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <div class="card card-body">
+            <h4>Partner 1</h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-body">
+            <h4>Partner 2</h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-body">
+            <h4>Partner 2</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

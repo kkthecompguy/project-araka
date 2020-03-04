@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <style>
+    .showcase {
+      position: relative;
+      height: 100vh;
+      background: url("{% static 'images/banner-un.jpg' %}");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .showcase-text {
+      position: absolute;
+      top: 40%;
+      color: #fff;
+    }
+    .showcase-text h4 {
+      font-size: 3rem;
+      padding-bottom: 20px;
+    }
+    .showcase-text .text-lg {
+      font-size: 1.5rem;
+    }
+  </style>
+  <div class="showcase mb-5">
+      <div class="showcase-text px-3">
+        <h2>About the conference</h2>
+        <p class="lead">In Africa there are many education and career fairs and conferences but none focus on the business of international education and student recruitment issues. The Africa International Education Recruitment Conference will provide a forum for international education agents from across the African Continent and higher Education providers to network and create partnership with each other</p>
+        <a href="#more" class="btn btn-dark text-lg">Read More</a>
+      </div>
+  </div>
+  <div class="container mb-5">
+    <div id="more">
+      <p>The conference will provide a business-to-business (B2B) platform for higher education providers to meet and interact with education agents in International education from the continent of Africa, Principals and Career teachers from local and international schools, government agencies and allied business/service providers.</p>
+      <p>The conference is an annual event that will be hosted in various countries in Africa each year. The 2020 edition will be held in Nairobi, Kenya. The two day conference will  provide an opportunity for meeting business partners and forum for building knowledge base, gaining experience awareness and skills in the international student recruitment industry: USA, Chiina, Canada, Europe, Parkistan, Denmark, Australia, Japan, India, Germany, Malaysia, Mauritius, Russia, Switzerland, UK, UAE, UK, and other countries from all over the world</p>
+      <p>The event brings together international education providers, government aand industry service providers, student recruitment agencies to build and international network, share contacts</p>
+    </div>
+  </div>
+  <div class="bg-dark mt-5 py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <h4 class="text-danger py-2">Subscribe To Our Newsletter</h4>
+          <form action="" method="POST">
+            <div class="form-group">
+              <input type="email" name="email" id="" class="form-control">
+              <p class="py-3 text-white">Fill out your email to be getting weekly newsletter on our frequently hosted events</p>
+            </div>
+            <button class="btn btn-info">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
