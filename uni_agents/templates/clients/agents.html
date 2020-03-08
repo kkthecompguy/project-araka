@@ -16,6 +16,7 @@
             <p class="card-text">{{request.user.agent.bio}}</p>
           </div>
         </div>
+        <a href="{% url 'clients:logout' %}" class="btn btn-secondary btn-block mt-5">Logout</a>
       </div>
       <div class="col-md-8">
         {% if messages %}
