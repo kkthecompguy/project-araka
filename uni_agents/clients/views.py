@@ -2,14 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .decorators import unauthenticated_user
 from .models import University, Agent
-from .forms import UniversityForm, CreateUserForm, ProfileForm
+from .forms import UniversityForm, CreateUserForm, ProfileForm, ContactForm, SubscribeForm
 
 
 # Create your views here.
+@unauthenticated_user
 def registerAgent(request):
-  form = CreateUserForm()
-
   if request.method == 'POST':
     form = CreateUserForm(request.POST)
     if form.is_valid():
@@ -18,9 +18,11 @@ def registerAgent(request):
         user = user
       )
       
-      return redirect('clients:login_agents')
+      return redirect('clients:login')
     else:
       messages.info(request, 'The two passwords did not match')
+  else:
+    form = CreateUserForm()
 
   context = {
     'form': form
@@ -28,7 +30,8 @@ def registerAgent(request):
   return render(request, 'clients/register-agent.html', context)
 
 
-def loginAgents(request):
+@unauthenticated_user
+def loginAgent(request):
   if request.method == 'POST':
     username = request.POST.get('username')
     password = request.POST.get('password')
@@ -41,10 +44,7 @@ def loginAgents(request):
     else:
       messages.info(request, 'Invalid credentials')  
 
-  context = {
-
-  }
-  return render(request, 'clients/login-agent.html', context)
+  return render(request, 'clients/login-agent.html')
 
 
 def logoutAgent(request):
@@ -60,16 +60,34 @@ def index(request):
 
 
 def about(request):
+  if request.method == 'POST':
+    form = SubscribeForm(request.POST)
+    if form.is_valid():
+      form.save()
+      form = SubscribeForm()
+      messages.success(request, 'Thank you for subscribing with us')
+  else:
+    form = SubscribeForm()
+
   context = {
-    'title': 'About Page'
+    'form': form
   }
 
   return render(request, 'clients/about.html', context)
 
 
 def contact(request):
+  if request.method == 'POST':
+    form = ContactForm(request.POST)
+    if form.is_valid():
+      form.save()
+      form = ContactForm()
+      messages.success(request, 'Your information is saved. We will get back to you with 24hrs. Check your email for feedback')
+  else:
+    form = ContactForm()
+
   context = {
-    'title': 'Hello world'
+    'form': form
   }
 
   return render(request, 'clients/contact.html', context
@@ -82,6 +100,7 @@ def uniPortal(request):
     form = UniversityForm(request.POST)
     if form.is_valid():
       form.save()
+      form = UniversityForm()
       messages.info(request, 'Your information has been save successfully. Check your email after 24hours for further guidance')
   else:
     form = UniversityForm()
@@ -113,3 +132,8 @@ def agents(request):
   }
 
   return render(request, 'clients/agents.html', context)
+
+
+def events(request):
+  context = {}
+  return render(request, 'clients/events.html',context)

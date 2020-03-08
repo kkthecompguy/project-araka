@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import University, Agent
+from .models import University, Agent, Contact, Subscribe
 
 class UniversityForm(ModelForm):
   name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','required':'required'}))
@@ -51,3 +51,21 @@ class ProfileForm(ModelForm):
     model = Agent
     fields = '__all__'
     exclude = ['user']
+
+
+class ContactForm(ModelForm):
+  name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 'required':'required'}))
+  email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control','required':'required'}))
+  message = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','required':'required'}))
+
+  class Meta:
+    model = Contact
+    fields = '__all__'
+
+
+class SubscribeForm(ModelForm):
+  email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control','required':'required'}))
+
+  class Meta:
+    model = Subscribe
+    fields = ['email']
