@@ -5,26 +5,40 @@
   <div class="container mt-5 mb-5">
     <div class="row">
       <div class="col-md-6 mx-auto">
+        {% if form.errors %}
+          <div class="alert alert-danger">
+            <p>{{form.errors}}</p>
+          </div>
+        {% endif %}
         <h2>Agents Registration</h2>
         <div class="card card-body">
           <form action="" method="POST" autocomplete="off">
+            {% csrf_token %}
             <div class="form-group">
               <label for="username">Username</label>
-              <input type="text" name="" id="" class="form-control">
+              {{form.username}}
+            </div>
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              {{form.first_name}}
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              {{form.last_name}}
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" name="" id="" class="form-control">
+              {{form.email}}
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" name="" id="" class="form-control">
+              {{form.password1}}
             </div>
             <div class="form-group">
               <label for="password">Confirm Password</label>
-              <input type="password" name="" id="" class="form-control">
+              {{form.password2}}
             </div>
-            <input type="submit" value="Register" class="btn btn-primary btn-block">
+            <input type="submit" value="Register" class="btn btn-primary btn-block mb-2">
             <p>Already have an account? <a href="{% url 'clients:login_agents' %}">Login</a></p>
           </form>
         </div>
