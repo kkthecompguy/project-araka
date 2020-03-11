@@ -12,6 +12,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      overflow: hidden;
     }
     .showcase-text {
       position: absolute;
@@ -45,6 +46,29 @@
     }
     .section-text {
       color: #fff;
+    }
+    @media(max-width: 392px) {
+      .showcase-text {
+        position: absolute;
+        top: 30%;
+        text-align: center;
+        color: #fff;
+        padding: 0 20px;
+      }
+      .showcase-text h1 {
+        font-size: 2.5rem;
+        padding-bottom: 20px;
+      }
+      .section {
+        width: 100%;
+        height: 500px;
+        padding-top: 50px;
+      }
+    }
+    @media(max-width: 320px) {
+      .section .container h4 {
+        padding-top: 10px;
+      }
     }
   </style>
   <div class="showcase mb-5">
@@ -99,16 +123,16 @@
   <div class="section">
     <div class="container">
       <h1 class="text-center">Partners</h1>
-      <p class="text-center px-4">We love diversity and we have partner all over the world. Some of who are our core sponsors and active participants in our major events</p>
-      <div class="row mt-3">
+      <p class="text-center px-4 py-4">We love diversity and we have partner all over the world. Some of who are our core sponsors and active participants in our major events</p>
+      <div class="row mt-3 mb-4">
         <div class="col-md-4 text-center">
-          <h4 class="text-info">Kenyatta University</h4>
+          <h4 class="text-info py-3">Kenyatta University</h4>
         </div>
         <div class="col-md-4 text-center">
-          <h4 class="text-info">University of Nairobi</h4>
+          <h4 class="text-info py-3">University of Nairobi</h4>
         </div>
         <div class="col-md-4 text-center">
-          <h4 class="text-info">Explore Education Sponsors</h4>
+          <h4 class="text-info py-3">Explore Education Sponsors</h4>
         </div>
       </div>
     </div>
